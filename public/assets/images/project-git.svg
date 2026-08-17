@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 350" width="100%" height="100%">
+  <rect width="600" height="350" fill="#0f172a" rx="16"/>
+  <rect x="2" y="2" width="596" height="346" fill="#4338ca" fill-opacity="0.15" rx="14" stroke="#a855f7" stroke-width="2" stroke-dasharray="6 6"/>
+  
+  <!-- Git Heatmap Simulation -->
+  <g transform="translate(140, 90)">
+    <!-- 7 rows of boxes -->
+    <!-- Col 1 -->
+    <rect x="0" y="0" width="22" height="22" rx="4" fill="#1e293b"/>
+    <rect x="0" y="28" width="22" height="22" rx="4" fill="#0e4429"/>
+    <rect x="0" y="56" width="22" height="22" rx="4" fill="#006d32"/>
+    <rect x="0" y="84" width="22" height="22" rx="4" fill="#26a641"/>
+    <!-- Col 2 -->
+    <rect x="28" y="0" width="22" height="22" rx="4" fill="#39d353"/>
+    <rect x="28" y="28" width="22" height="22" rx="4" fill="#26a641"/>
+    <rect x="28" y="56" width="22" height="22" rx="4" fill="#006d32"/>
+    <rect x="28" y="84" width="22" height="22" rx="4" fill="#1e293b"/>
+    <!-- Col 3 -->
+    <rect x="56" y="0" width="22" height="22" rx="4" fill="#26a641"/>
+    <rect x="56" y="28" width="22" height="22" rx="4" fill="#39d353"/>
+    <rect x="56" y="56" width="22" height="22" rx="4" fill="#39d353"/>
+    <rect x="56" y="84" width="22" height="22" rx="4" fill="#006d32"/>
+    <!-- Col 4 -->
+    <rect x="84" y="0" width="22" height="22" rx="4" fill="#006d32"/>
+    <rect x="84" y="28" width="22" height="22" rx="4" fill="#1e293b"/>
+    <rect x="84" y="56" width="22" height="22" rx="4" fill="#26a641"/>
+    <rect x="84" y="84" width="22" height="22" rx="4" fill="#39d353"/>
+    <!-- Col 5 -->
+    <rect x="112" y="0" width="22" height="22" rx="4" fill="#39d353"/>
+    <rect x="112" y="28" width="22" height="22" rx="4" fill="#39d353"/>
+    <rect x="112" y="56" width="22" height="22" rx="4" fill="#26a641"/>
+    <rect x="112" y="84" width="22" height="22" rx="4" fill="#006d32"/>
+    <!-- Col 6 -->
+    <rect x="140" y="0" width="22" height="22" rx="4" fill="#26a641"/>
+    <rect x="140" y="28" width="22" height="22" rx="4" fill="#006d32"/>
+    <rect x="140" y="56" width="22" height="22" rx="4" fill="#39d353"/>
+    <rect x="140" y="84" width="22" height="22" rx="4" fill="#39d353"/>
+    <!-- Col 7 -->
+    <rect x="168" y="0" width="22" height="22" rx="4" fill="#39d353"/>
+    <rect x="168" y="28" width="22" height="22" rx="4" fill="#26a641"/>
+    <rect x="168" y="56" width="22" height="22" rx="4" fill="#006d32"/>
+    <rect x="168" y="84" width="22" height="22" rx="4" fill="#1e293b"/>
+    <!-- Col 8 -->
+    <rect x="196" y="0" width="22" height="22" rx="4" fill="#006d32"/>
+    <rect x="196" y="28" width="22" height="22" rx="4" fill="#26a641"/>
+    <rect x="196" y="56" width="22" height="22" rx="4" fill="#39d353"/>
+    <rect x="196" y="84" width="22" height="22" rx="4" fill="#39d353"/>
+    <!-- Col 9 -->
+    <rect x="224" y="0" width="22" height="22" rx="4" fill="#39d353"/>
+    <rect x="224" y="28" width="22" height="22" rx="4" fill="#39d353"/>
+    <rect x="224" y="56" width="22" height="22" rx="4" fill="#26a641"/>
+    <rect x="224" y="84" width="22" height="22" rx="4" fill="#006d32"/>
+    <!-- Col 10 -->
+    <rect x="252" y="0" width="22" height="22" rx="4" fill="#26a641"/>
+    <rect x="252" y="28" width="22" height="22" rx="4" fill="#006d32"/>
+    <rect x="252" y="56" width="22" height="22" rx="4" fill="#1e293b"/>
+    <rect x="252" y="84" width="22" height="22" rx="4" fill="#39d353"/>
+    <!-- Col 11 -->
+    <rect x="280" y="0" width="22" height="22" rx="4" fill="#39d353"/>
+    <rect x="280" y="28" width="22" height="22" rx="4" fill="#26a641"/>
+    <rect x="280" y="56" width="22" height="22" rx="4" fill="#006d32"/>
+    <rect x="280" y="84" width="22" height="22" rx="4" fill="#26a641"/>
+  </g>
+
+  <text x="300" y="280" font-family="Outfit, sans-serif" font-size="22" font-weight="bold" fill="#f8fafc" text-anchor="middle">GitLens Repository & Churn Analyzer</text>
+  <text x="300" y="310" font-family="Inter, sans-serif" font-size="14" fill="#94a3b8" text-anchor="middle">Python • TypeScript • GraphQL • Heatmap</text>
+</svg>

@@ -1,0 +1,65 @@
+<footer class="border-t border-subtle bg-surface/80 py-10 relative overflow-hidden">
+  <div class="container mx-auto">
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+      
+      <!-- Brand & Copyright -->
+      <div class="flex flex-col items-center sm:items-start text-center sm:text-left">
+        <a href="javascript:void(0)" (click)="scrollToTop()" class="flex items-center gap-2 mb-2 group cursor-pointer">
+          <span class="font-mono font-bold text-base text-indigo-400">&lt;SH /&gt;</span>
+          <span class="font-display font-bold text-base text-main group-hover:text-indigo-400 transition-colors">
+            {{ data.name }}
+          </span>
+        </a>
+        <p class="text-xs text-muted">
+          &copy; {{ currentYear }} {{ data.name }}. All rights reserved.
+        </p>
+      </div>
+
+      <!-- Social Channels & Back to Top Button -->
+      <div class="flex items-center gap-3">
+        <a
+          [href]="data.github"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="p-2 rounded-lg border border-subtle bg-surface-elevated text-muted hover:text-indigo-400 hover:border-indigo-400 transition-all cursor-pointer"
+          pTooltip="GitHub"
+          aria-label="GitHub"
+        >
+          <i class="pi pi-github text-sm"></i>
+        </a>
+
+        <a
+          [href]="data.linkedin"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="p-2 rounded-lg border border-subtle bg-surface-elevated text-muted hover:text-indigo-400 hover:border-indigo-400 transition-all cursor-pointer"
+          pTooltip="LinkedIn"
+          aria-label="LinkedIn"
+        >
+          <i class="pi pi-linkedin text-sm"></i>
+        </a>
+
+        <a
+          [href]="'mailto:' + data.email"
+          class="p-2 rounded-lg border border-subtle bg-surface-elevated text-muted hover:text-cyan-400 hover:border-cyan-400 transition-all cursor-pointer"
+          pTooltip="Email"
+          aria-label="Email"
+        >
+          <i class="pi pi-send text-sm"></i>
+        </a>
+
+        <!-- Back to Top Button -->
+        <button
+          type="button"
+          (click)="scrollToTop()"
+          class="p-2 rounded-lg border border-subtle bg-surface-elevated text-muted hover:text-white hover:bg-indigo-600 transition-all ml-2 cursor-pointer flex items-center justify-center"
+          pTooltip="Back to Top"
+          aria-label="Back to Top"
+        >
+          <i class="pi pi-arrow-up text-sm"></i>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</footer>

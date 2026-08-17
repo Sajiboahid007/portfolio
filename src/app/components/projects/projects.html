@@ -1,0 +1,266 @@
+<section id="projects" class="py-24 relative overflow-hidden">
+  <div class="container mx-auto">
+    
+    <!-- Section Header -->
+    <div class="flex flex-col items-center text-center">
+      <div class="section-badge">
+        <i class="pi pi-folder text-xs"></i>
+        <span>Featured Work</span>
+      </div>
+      <h2 class="section-title">Projects & Applications</h2>
+      <p class="section-subtitle">
+        Explore full-stack platforms, machine learning assistants, developer productivity tools, and university coursework projects.
+      </p>
+    </div>
+
+    <!-- Category Filter Tabs -->
+    <div class="flex flex-wrap items-center justify-center gap-2 mb-12">
+      @for (f of filters; track f.key) {
+        <button
+          type="button"
+          (click)="setFilter(f.key)"
+          class="filter-pill-btn flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold border transition-all"
+          [class.active]="selectedCategory() === f.key"
+          [class.inactive]="selectedCategory() !== f.key"
+        >
+          <i [class]="f.icon + ' text-xs'"></i>
+          <span>{{ f.label }}</span>
+        </button>
+      }
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      @for (project of filteredProjects(); track project.id) {
+        <div class="project-card glass-card rounded-2xl overflow-hidden flex flex-col group">
+          
+          <!-- Project Image & Overlay -->
+          <div class="relative aspect-video overflow-hidden bg-surface-elevated cursor-pointer" (click)="openProjectDetails(project)">
+            <img
+              [src]="project.image"
+              [alt]="project.title"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            
+            <!-- Category Tag Floating Badge -->
+            <div class="absolute top-3 left-3">
+              <span class="px-2.5 py-1 rounded-md text-[11px] font-mono font-bold bg-slate-900/80 backdrop-blur-md text-indigo-300 border border-indigo-500/30">
+                {{ project.categoryLabel }}
+              </span>
+            </div>
+
+            @if (project.featured) {
+              <div class="absolute top-3 right-3">
+                <span class="px-2.5 py-1 rounded-md text-[11px] font-bold bg-amber-500/90 text-slate-950 flex items-center gap-1 shadow-md">
+                  <i class="pi pi-star-fill text-[10px]"></i>
+                  <span>Featured</span>
+                </span>
+              </div>
+            }
+
+            <!-- Hover Quick Action Overlay -->
+            <div class="absolute inset-0 bg-slate-950/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
+              <button
+                type="button"
+                (click)="openProjectDetails(project); $event.stopPropagation()"
+                class="p-2.5 rounded-xl bg-indigo-600 text-white hover:bg-indigo-500 transition-colors shadow-lg"
+                pTooltip="View Full Details"
+              >
+                <i class="pi pi-search text-base"></i>
+              </button>
+              @if (project.liveUrl) {
+                <a
+                  [href]="project.liveUrl"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  (click)="$event.stopPropagation()"
+                  class="p-2.5 rounded-xl bg-cyan-600 text-white hover:bg-cyan-500 transition-colors shadow-lg"
+                  pTooltip="Live Demo"
+                >
+                  <i class="pi pi-external-link text-base"></i>
+                </a>
+              }
+              @if (project.githubUrl) {
+                <a
+                  [href]="project.githubUrl"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  (click)="$event.stopPropagation()"
+                  class="p-2.5 rounded-xl bg-slate-800 text-white hover:bg-slate-700 transition-colors shadow-lg"
+                  pTooltip="GitHub Repo"
+                >
+                  <i class="pi pi-github text-base"></i>
+                </a>
+              }
+            </div>
+          </div>
+
+          <!-- Project Details Body -->
+          <div class="p-6 flex flex-col flex-1 justify-between">
+            <div>
+              <h3
+                class="text-lg font-bold font-display text-main mb-2 min-h-[3.2rem] flex items-start cursor-pointer hover:text-indigo-400 transition-colors"
+                (click)="openProjectDetails(project)"
+              >
+                {{ project.title }}
+              </h3>
+              <p class="text-xs text-muted leading-relaxed line-clamp-2 min-h-[2.5rem] mb-4">
+                {{ project.summary }}
+              </p>
+            </div>
+
+            <div>
+              <!-- Tech Stack Tags -->
+              <div class="flex flex-wrap gap-1.5 mb-5 min-h-[1.75rem]">
+                @for (tag of project.tags; track tag) {
+                  <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-surface-elevated border border-subtle text-muted">
+                    {{ tag }}
+                  </span>
+                }
+              </div>
+
+              <!-- Footer Actions -->
+              <div class="pt-4 border-t border-subtle flex items-center justify-between">
+                <button
+                  type="button"
+                  (click)="openProjectDetails(project)"
+                  class="text-xs font-bold text-indigo-400 hover:text-indigo-300 flex items-center gap-1.5 transition-colors"
+                >
+                  <span>Learn More</span>
+                  <i class="pi pi-arrow-right text-[10px]"></i>
+                </button>
+
+                <div class="flex items-center gap-2">
+                  @if (project.githubUrl) {
+                    <a
+                      [href]="project.githubUrl"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="p-1.5 text-muted hover:text-main transition-colors"
+                      pTooltip="Source Code"
+                    >
+                      <i class="pi pi-github text-sm"></i>
+                    </a>
+                  }
+                  @if (project.liveUrl) {
+                    <a
+                      [href]="project.liveUrl"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="p-1.5 text-muted hover:text-cyan-400 transition-colors"
+                      pTooltip="Launch App"
+                    >
+                      <i class="pi pi-external-link text-sm"></i>
+                    </a>
+                  }
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      }
+    </div>
+
+  </div>
+
+  <!-- PrimeNG Project Details Modal / Dialog -->
+  <p-dialog
+    [visible]="isModalVisible()"
+    (visibleChange)="closeModal()"
+    [modal]="true"
+    [draggable]="false"
+    [resizable]="false"
+    [style]="{ width: '90vw', maxWidth: '780px' }"
+    [dismissableMask]="true"
+  >
+    <ng-template #header>
+      @if (selectedProject()) {
+        <div class="flex items-center gap-3">
+          <span class="p-2 rounded-lg bg-indigo-500/10 text-indigo-400">
+            <i class="pi pi-folder-open"></i>
+          </span>
+          <div>
+            <h3 class="text-xl font-bold font-display text-main">{{ selectedProject()?.title }}</h3>
+            <span class="text-xs font-mono text-indigo-400">{{ selectedProject()?.categoryLabel }}</span>
+          </div>
+        </div>
+      }
+    </ng-template>
+
+    @if (selectedProject()) {
+      <div class="flex flex-col gap-6">
+        
+        <!-- Modal Image Preview -->
+        <div class="aspect-video w-full rounded-xl overflow-hidden border border-subtle bg-slate-900">
+          <img
+            [src]="selectedProject()?.image"
+            [alt]="selectedProject()?.title"
+            class="w-full h-full object-cover"
+          />
+        </div>
+
+        <!-- Overview & Description -->
+        <div>
+          <h4 class="text-sm font-mono text-muted uppercase tracking-wider mb-2">Project Overview</h4>
+          <p class="text-sm text-main leading-relaxed">
+            {{ selectedProject()?.description }}
+          </p>
+        </div>
+
+        <!-- Key Features List -->
+        <div>
+          <h4 class="text-sm font-mono text-muted uppercase tracking-wider mb-3">Key Highlights & Architecture</h4>
+          <ul class="space-y-2">
+            @for (feature of selectedProject()?.features; track feature) {
+              <li class="flex items-start gap-2.5 text-xs text-muted">
+                <i class="pi pi-check text-emerald-400 mt-0.5"></i>
+                <span class="text-main">{{ feature }}</span>
+              </li>
+            }
+          </ul>
+        </div>
+
+        <!-- Technologies Used -->
+        <div>
+          <h4 class="text-sm font-mono text-muted uppercase tracking-wider mb-2">Technologies Used</h4>
+          <div class="flex flex-wrap gap-2">
+            @for (tag of selectedProject()?.tags; track tag) {
+              <span class="custom-badge font-mono text-xs">
+                {{ tag }}
+              </span>
+            }
+          </div>
+        </div>
+
+        <!-- Modal Footer Actions -->
+        <div class="pt-4 border-t border-subtle flex flex-wrap items-center justify-end gap-3">
+          @if (selectedProject()?.githubUrl) {
+            <a
+              [href]="selectedProject()?.githubUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+              pButton
+              class="btn-outline-glass px-4 py-2 text-sm font-semibold rounded-xl"
+              icon="pi pi-github"
+              label="Source Code"
+            ></a>
+          }
+          @if (selectedProject()?.liveUrl) {
+            <a
+              [href]="selectedProject()?.liveUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+              pButton
+              class="btn-primary-gradient px-4 py-2 text-sm font-semibold rounded-xl text-white"
+              icon="pi pi-external-link"
+              label="Open Live Demo"
+            ></a>
+          }
+        </div>
+
+      </div>
+    }
+  </p-dialog>
+</section>

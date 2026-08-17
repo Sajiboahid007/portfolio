@@ -1,0 +1,32 @@
+:host {
+  display: block;
+}
+
+.filter-pill-btn {
+  cursor: pointer;
+
+  &.active {
+    background: var(--accent-gradient);
+    color: #ffffff;
+    border-color: transparent;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.35);
+  }
+
+  &.inactive {
+    background: var(--bg-surface-elevated);
+    color: var(--text-muted);
+    border-color: var(--border-color);
+
+    &:hover {
+      color: var(--text-main);
+      border-color: var(--accent-primary);
+    }
+  }
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

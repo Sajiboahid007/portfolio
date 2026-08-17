@@ -1,0 +1,28 @@
+.typewriter-prefix {
+  display: inline-block;
+  margin-right: 0.5rem;
+  white-space: pre;
+}
+
+.social-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.stat-box {
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  
+  &:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-primary);
+    box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.2);
+  }
+}
