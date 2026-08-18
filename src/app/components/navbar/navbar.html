@@ -1,73 +1,51 @@
-<header
-  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
-  [class.glass-navbar]="scrollService.isScrolled()"
-  [class.bg-transparent]="!scrollService.isScrolled()"
-  [class.py-3]="scrollService.isScrolled()"
-  [class.py-5]="!scrollService.isScrolled()"
->
+<header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+  [class.glass-navbar]="scrollService.isScrolled()" [class.bg-transparent]="!scrollService.isScrolled()"
+  [class.py-3]="scrollService.isScrolled()" [class.py-5]="!scrollService.isScrolled()">
   <div class="container mx-auto flex items-center justify-between">
     <!-- Brand / Photo & Name Logo -->
-    <a
-      href="javascript:void(0)"
-      (click)="navigateTo('home')"
-      class="brand-logo flex items-center gap-3 group cursor-pointer"
-      [attr.aria-label]="data.name + ' Portfolio Home'"
-    >
+    <a href="javascript:void(0)" (click)="navigateTo('home')"
+      class="brand-logo flex items-center gap-3 group cursor-pointer" [attr.aria-label]="data.name + ' Portfolio Home'">
       <div class="navbar-avatar-box relative flex items-center justify-center">
-        <img
-          [src]="data.avatarUrl"
-          [alt]="data.name"
-          class="navbar-avatar-img object-cover object-top"
-        />
+        <img [src]="data.avatarUrl" [alt]="data.name" class="navbar-avatar-img object-cover object-top" />
         <span class="online-indicator"></span>
       </div>
       <div class="flex flex-col">
-        <span class="font-display font-bold text-base md:text-lg leading-tight tracking-tight group-hover:text-indigo-400 transition-colors">
+        <span
+          class="font-display font-bold text-base md:text-lg leading-tight tracking-tight group-hover:text-indigo-400 transition-colors">
           {{ data.name }}
         </span>
-        <span class="text-xs text-muted font-mono leading-none">cs.portfolio</span>
+        <span class="text-xs text-muted font-mono leading-none">Sajib.portfolio</span>
       </div>
     </a>
 
     <!-- Desktop Navigation Links -->
-    <nav class="hidden md:flex items-center gap-1 bg-surface-elevated p-1.5 rounded-full border border-subtle shadow-sm">
+    <nav
+      class="hidden md:flex items-center gap-1 bg-surface-elevated p-1.5 rounded-full border border-subtle shadow-sm">
       @for (item of navItems; track item.id) {
-        <button
-          type="button"
-          (click)="navigateTo(item.id)"
-          class="nav-link-btn flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200"
-          [class.active]="scrollService.activeSection() === item.id"
-          [attr.aria-current]="scrollService.activeSection() === item.id ? 'page' : null"
-        >
-          <i [class]="item.icon + ' text-xs'"></i>
-          <span>{{ item.label }}</span>
-        </button>
+      <button type="button" (click)="navigateTo(item.id)"
+        class="nav-link-btn flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200"
+        [class.active]="scrollService.activeSection() === item.id"
+        [attr.aria-current]="scrollService.activeSection() === item.id ? 'page' : null">
+        <i [class]="item.icon + ' text-xs'"></i>
+        <span>{{ item.label }}</span>
+      </button>
       }
     </nav>
 
     <!-- Right Controls: Theme Toggle & CTA -->
     <div class="hidden md:flex items-center gap-3">
       <!-- Dark / Light Theme Switcher -->
-      <button
-        type="button"
-        (click)="toggleTheme()"
+      <button type="button" (click)="toggleTheme()"
         class="theme-toggle-btn p-2.5 rounded-xl border border-subtle bg-surface-elevated hover:border-indigo-400 transition-all text-main cursor-pointer"
-        [pTooltip]="themeService.isDark() ? 'Switch to Light Mode' : 'Switch to Dark Mode'"
-        tooltipPosition="bottom"
-        aria-label="Toggle dark/light theme"
-      >
-        <i
-          class="text-lg transition-transform duration-300"
-          [class]="themeService.isDark() ? 'pi pi-sun text-amber-400 rotate-0' : 'pi pi-moon text-indigo-600 rotate-180'"
-        ></i>
+        [pTooltip]="themeService.isDark() ? 'Switch to Light Mode' : 'Switch to Dark Mode'" tooltipPosition="bottom"
+        aria-label="Toggle dark/light theme">
+        <i class="text-lg transition-transform duration-300"
+          [class]="themeService.isDark() ? 'pi pi-sun text-amber-400 rotate-0' : 'pi pi-moon text-indigo-600 rotate-180'"></i>
       </button>
 
       <!-- Let's Connect CTA Button -->
-      <button
-        type="button"
-        (click)="navigateTo('contact')"
-        class="btn-primary-gradient px-4 py-2 text-sm font-semibold rounded-xl flex items-center gap-2 text-white shadow-md cursor-pointer transition-transform hover:-translate-y-0.5"
-      >
+      <button type="button" (click)="navigateTo('contact')"
+        class="btn-primary-gradient px-4 py-2 text-sm font-semibold rounded-xl flex items-center gap-2 text-white shadow-md cursor-pointer transition-transform hover:-translate-y-0.5">
         <i class="pi pi-send text-xs"></i>
         <span>Hire / Connect</span>
       </button>
@@ -75,22 +53,15 @@
 
     <!-- Mobile Hamburger Menu Button -->
     <div class="flex md:hidden items-center gap-2">
-      <button
-        type="button"
-        (click)="toggleTheme()"
+      <button type="button" (click)="toggleTheme()"
         class="p-2 rounded-lg border border-subtle bg-surface-elevated text-main cursor-pointer"
-        aria-label="Toggle dark/light theme"
-      >
+        aria-label="Toggle dark/light theme">
         <i [class]="themeService.isDark() ? 'pi pi-sun text-amber-400' : 'pi pi-moon text-indigo-600'"></i>
       </button>
 
-      <button
-        type="button"
-        (click)="toggleMobileMenu()"
+      <button type="button" (click)="toggleMobileMenu()"
         class="p-2.5 rounded-xl border border-subtle bg-surface-elevated text-main cursor-pointer"
-        [attr.aria-expanded]="mobileMenuOpen()"
-        aria-label="Toggle navigation menu"
-      >
+        [attr.aria-expanded]="mobileMenuOpen()" aria-label="Toggle navigation menu">
         <i [class]="mobileMenuOpen() ? 'pi pi-times text-lg' : 'pi pi-bars text-lg'"></i>
       </button>
     </div>
@@ -98,31 +69,26 @@
 
   <!-- Mobile Drawer / Dropdown -->
   @if (mobileMenuOpen()) {
-    <div class="mobile-drawer md:hidden glass-navbar mt-3 p-4 rounded-2xl mx-4 border border-subtle shadow-xl animate-fade-in">
-      <div class="flex flex-col gap-2">
-        @for (item of navItems; track item.id) {
-          <button
-            type="button"
-            (click)="navigateTo(item.id)"
-            class="mobile-nav-btn flex items-center justify-between p-3 rounded-xl text-left font-medium transition-colors"
-            [class.active]="scrollService.activeSection() === item.id"
-          >
-            <div class="flex items-center gap-3">
-              <i [class]="item.icon + ' text-base text-indigo-400'"></i>
-              <span>{{ item.label }}</span>
-            </div>
-            <i class="pi pi-chevron-right text-xs opacity-50"></i>
-          </button>
-        }
-        <button
-          type="button"
-          (click)="navigateTo('contact')"
-          class="w-full mt-2 py-3 rounded-xl btn-primary-gradient font-semibold text-white flex items-center justify-center gap-2 cursor-pointer"
-        >
-          <i class="pi pi-send"></i>
-          <span>Get in Touch</span>
-        </button>
-      </div>
+  <div
+    class="mobile-drawer md:hidden glass-navbar mt-3 p-4 rounded-2xl mx-4 border border-subtle shadow-xl animate-fade-in">
+    <div class="flex flex-col gap-2">
+      @for (item of navItems; track item.id) {
+      <button type="button" (click)="navigateTo(item.id)"
+        class="mobile-nav-btn flex items-center justify-between p-3 rounded-xl text-left font-medium transition-colors"
+        [class.active]="scrollService.activeSection() === item.id">
+        <div class="flex items-center gap-3">
+          <i [class]="item.icon + ' text-base text-indigo-400'"></i>
+          <span>{{ item.label }}</span>
+        </div>
+        <i class="pi pi-chevron-right text-xs opacity-50"></i>
+      </button>
+      }
+      <button type="button" (click)="navigateTo('contact')"
+        class="w-full mt-2 py-3 rounded-xl btn-primary-gradient font-semibold text-white flex items-center justify-center gap-2 cursor-pointer">
+        <i class="pi pi-send"></i>
+        <span>Get in Touch</span>
+      </button>
     </div>
+  </div>
   }
 </header>
