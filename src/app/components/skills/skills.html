@@ -1,0 +1,71 @@
+<section id="skills" class="py-24 relative overflow-hidden bg-surface-elevated/30">
+  <div class="container mx-auto">
+    
+    <!-- Section Header -->
+    <div class="flex flex-col items-center text-center">
+      <div class="section-badge">
+        <i class="pi pi-bolt text-xs"></i>
+        <span>Technical Arsenal</span>
+      </div>
+      <h2 class="section-title">Skills & Technologies</h2>
+      <p class="section-subtitle">
+        A curated toolkit of languages, frameworks, databases, and engineering workflows I use to build robust software.
+      </p>
+    </div>
+
+    <!-- 4 Skill Category Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      @for (group of skillGroups; track group.name) {
+        <div class="glass-card p-6 md:p-8 rounded-2xl flex flex-col justify-between">
+          
+          <div>
+            <!-- Group Header -->
+            <div class="flex items-center gap-3 mb-2">
+              <div class="p-2.5 rounded-xl bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+                <i [class]="group.icon + ' text-lg'"></i>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold font-display text-main">{{ group.name }}</h3>
+                <p class="text-xs text-muted">{{ group.description }}</p>
+              </div>
+            </div>
+
+            <!-- Skills List with Progress & Tags -->
+            <div class="flex flex-col gap-4 mt-6">
+              @for (skill of group.skills; track skill.name) {
+                <div class="skill-item flex flex-col gap-1.5 p-3 rounded-xl bg-surface/50 border border-subtle hover:border-indigo-500/30 transition-colors">
+                  <div class="flex items-center justify-between text-xs">
+                    <div class="flex items-center gap-2">
+                      <i [class]="skill.icon + ' text-indigo-400'"></i>
+                      <span class="font-bold text-main">{{ skill.name }}</span>
+                    </div>
+                    <span class="font-mono text-muted">{{ skill.level }}%</span>
+                  </div>
+
+                  <!-- Mini Progress Bar -->
+                  <div class="w-full bg-slate-700/20 rounded-full h-1.5 overflow-hidden">
+                    <div
+                      class="h-full rounded-full bg-gradient-to-r from-indigo-500 to-cyan-400 transition-all duration-1000"
+                      [style.width.%]="skill.level"
+                    ></div>
+                  </div>
+                </div>
+              }
+            </div>
+          </div>
+
+          <!-- Bottom Summary Tag Pills -->
+          <div class="flex flex-wrap gap-2 mt-6 pt-4 border-t border-subtle">
+            @for (skill of group.skills; track skill.name) {
+              <span class="custom-badge text-xs">
+                {{ skill.name }}
+              </span>
+            }
+          </div>
+
+        </div>
+      }
+    </div>
+
+  </div>
+</section>
