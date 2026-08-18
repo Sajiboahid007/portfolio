@@ -82,6 +82,37 @@ header {
   }
 }
 
+.desktop-nav {
+  display: none;
+}
+
+.desktop-actions {
+  display: none;
+}
+
+.mobile-actions {
+  display: flex;
+}
+
+.mobile-drawer {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .desktop-nav {
+    display: flex;
+  }
+  .desktop-actions {
+    display: flex;
+  }
+  .mobile-actions {
+    display: none !important;
+  }
+  .mobile-drawer {
+    display: none !important;
+  }
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;

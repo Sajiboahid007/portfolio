@@ -149,6 +149,10 @@ button {
   padding-right: 1.5rem;
 }
 
+.hidden { display: none !important; }
+.block { display: block; }
+.inline-block { display: inline-block; }
+.inline { display: inline; }
 .flex { display: flex; }
 .inline-flex { display: inline-flex; }
 .flex-col { flex-direction: column; }
@@ -169,20 +173,33 @@ button {
 .grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 
 @media (min-width: 640px) {
+  .sm\:hidden { display: none !important; }
+  .sm\:block { display: block !important; }
+  .sm\:flex { display: flex !important; }
+  .sm\:inline-flex { display: inline-flex !important; }
   .sm\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .sm\:flex-row { flex-direction: row; }
   .sm\:flex-initial { flex: 0 1 auto; }
+  .sm\:w-auto { width: auto; }
 }
 
 @media (min-width: 768px) {
-  .md\:flex { display: flex; }
-  .md\:hidden { display: none; }
+  .md\:hidden { display: none !important; }
+  .md\:block { display: block !important; }
+  .md\:flex { display: flex !important; }
+  .md\:inline-flex { display: inline-flex !important; }
+  .md\:grid { display: grid !important; }
   .md\:flex-row { flex-direction: row; }
   .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .md\:p-8 { padding: 2rem; }
 }
 
 @media (min-width: 1024px) {
+  .lg\:hidden { display: none !important; }
+  .lg\:block { display: block !important; }
+  .lg\:flex { display: flex !important; }
+  .lg\:inline-flex { display: inline-flex !important; }
+  .lg\:grid { display: grid !important; }
   .lg\:grid-cols-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
   .lg\:col-span-7 { grid-column: span 7 / span 12; }
   .lg\:col-span-5 { grid-column: span 5 / span 12; }
