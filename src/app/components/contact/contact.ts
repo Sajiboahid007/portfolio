@@ -73,7 +73,7 @@ export class ContactComponent {
 
     this.isSubmitting.set(true);
 
-    // Simulate reliable API/EmailJS submission
+    // Smooth UI showcase feedback
     setTimeout(() => {
       this.isSubmitting.set(false);
       this.isSuccess.set(true);
@@ -82,7 +82,7 @@ export class ContactComponent {
       setTimeout(() => {
         this.isSuccess.set(false);
       }, 6000);
-    }, 1200);
+    }, 1000);
   }
 
   copyToClipboard(text: string, label: string): void {
