@@ -1,0 +1,28 @@
+:host {
+  display: block;
+}
+
+.timeline-marker-circle {
+  width: 36px;
+  height: 36px;
+  transition: transform 0.3s ease;
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.3);
+
+  &:hover {
+    transform: scale(1.15);
+  }
+}
+
+::ng-deep .custom-portfolio-timeline {
+  .p-timeline-event-opposite {
+    display: none !important;
+  }
+  .p-timeline-event-content {
+    padding-left: 1.5rem !important;
+    padding-right: 0 !important;
+  }
+  .p-timeline-event-connector {
+    background-color: rgba(99, 102, 241, 0.3) !important;
+    width: 2px !important;
+  }
+}

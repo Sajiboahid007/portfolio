@@ -97,6 +97,31 @@ a {
   text-decoration: none;
 }
 
+button {
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* PrimeUI License Notice Suppression */
+[class*="license"],
+[id*="license"],
+.p-license,
+.p-license-banner,
+.p-license-badge,
+.prime-license {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;

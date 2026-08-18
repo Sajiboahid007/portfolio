@@ -1,0 +1,259 @@
+<section id="contact" class="py-24 relative overflow-hidden">
+
+  <!-- Ambient background glow -->
+  <div class="ambient-glow glow-primary -bottom-20 -left-20"></div>
+  <div class="ambient-glow glow-cyan -top-20 -right-20"></div>
+
+  <div class="container mx-auto relative z-10">
+
+    <!-- Section Header -->
+    <div class="flex flex-col items-center text-center">
+      <div class="section-badge">
+        <i class="pi pi-envelope text-xs"></i>
+        <span>Get In Touch</span>
+      </div>
+      <h2 class="section-title">Let's Build Something Great</h2>
+      <p class="section-subtitle">
+        Have an exciting project, open role, internship opportunity, or just want to discuss technology? Send me a
+        message!
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start max-w-5xl mx-auto">
+
+      <!-- Left Column: Direct Reach-out Channels -->
+      <div class="lg:col-span-5 flex flex-col gap-5">
+
+        <div class="glass-card p-6 rounded-2xl">
+          <h3 class="text-xl font-bold font-display text-main mb-3">Contact Information</h3>
+          <p class="text-xs text-muted leading-relaxed mb-6">
+            Feel free to contact me via email, phone, or any of the platforms below. I will respond as soon as possible!
+          </p>
+
+          <div class="flex flex-col gap-4">
+
+            <!-- Email Card -->
+            <div
+              class="flex items-center justify-between p-3.5 rounded-xl bg-surface-elevated border border-subtle group">
+              <div class="flex items-center gap-3">
+                <div class="p-2.5 rounded-lg bg-indigo-500/10 text-indigo-400">
+                  <i class="pi pi-envelope text-base"></i>
+                </div>
+                <div class="flex flex-col">
+                  <span class="text-[10px] font-mono text-muted uppercase">Email Address</span>
+                  <a [href]="'mailto:' + data.email"
+                    class="text-xs font-semibold text-main hover:text-indigo-400 transition-colors">
+                    {{ data.email }}
+                  </a>
+                </div>
+              </div>
+              <button type="button" (click)="copyToClipboard(data.email, 'email')"
+                class="p-2 text-muted hover:text-indigo-400 transition-colors"
+                [pTooltip]="copiedField() === 'email' ? 'Copied!' : 'Copy Email'" tooltipPosition="left">
+                <i [class]="copiedField() === 'email' ? 'pi pi-check text-emerald-400' : 'pi pi-copy'"></i>
+              </button>
+            </div>
+
+            <!-- WhatsApp / Phone Card -->
+            <div
+              class="flex items-center justify-between p-3.5 rounded-xl bg-surface-elevated border border-subtle group">
+              <div class="flex items-center gap-3">
+                <div class="p-2.5 rounded-lg bg-emerald-500/10 text-emerald-400">
+                  <i class="pi pi-whatsapp text-base"></i>
+                </div>
+                <div class="flex flex-col">
+                  <span class="text-[10px] font-mono text-muted uppercase">WhatsApp / Call</span>
+                  <a [href]="'https://wa.me/' + data.whatsapp" target="_blank"
+                    class="text-xs font-semibold text-main hover:text-emerald-400 transition-colors">
+                    {{ data.phone }}
+                  </a>
+                </div>
+              </div>
+              <button type="button" (click)="copyToClipboard(data.phone, 'phone')"
+                class="p-2 text-muted hover:text-emerald-400 transition-colors"
+                [pTooltip]="copiedField() === 'phone' ? 'Copied!' : 'Copy Phone'" tooltipPosition="left">
+                <i [class]="copiedField() === 'phone' ? 'pi pi-check text-emerald-400' : 'pi pi-copy'"></i>
+              </button>
+            </div>
+
+            <!-- Interactive Base Location Card -->
+            <div (click)="openMap()"
+              class="flex items-center justify-between p-3.5 rounded-xl bg-surface-elevated border border-subtle group hover:border-cyan-500/50 hover:bg-cyan-500/5 transition-all duration-300 cursor-pointer shadow-sm"
+              pTooltip="Click to View Location on Map" tooltipPosition="left">
+              <div class="flex items-center gap-3">
+                <div
+                  class="p-2.5 rounded-lg bg-cyan-500/10 text-cyan-400 group-hover:scale-110 group-hover:bg-cyan-500/20 transition-all">
+                  <i class="pi pi-map-marker text-base"></i>
+                </div>
+                <div class="flex flex-col">
+                  <span class="text-[10px] font-mono text-muted uppercase">Base Location</span>
+                  <span class="text-xs font-semibold text-main group-hover:text-cyan-400 transition-colors">
+                    {{ data.location }}
+                  </span>
+                </div>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="p-2 text-muted group-hover:text-cyan-400 transition-colors">
+                  <i class="pi pi-map text-sm"></i>
+                </span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Availability Status Box -->
+        <div class="glass-card p-6 rounded-2xl border border-emerald-500/30">
+          <div class="flex items-center gap-3 mb-2">
+            <span class="relative flex h-3 w-3">
+              <span
+                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+            </span>
+            <h4 class="text-sm font-bold text-main">Current Availability</h4>
+          </div>
+          <p class="text-xs text-muted leading-relaxed">
+            Actively seeking Full-Time Software Engineer, Frontend Engineer, and Full-Stack Developer roles starting
+            immediately.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Reactive Contact Form -->
+      <div class="lg:col-span-7">
+        <div class="glass-card p-6 md:p-8 rounded-2xl">
+
+          <h3 class="text-xl font-bold font-display text-main mb-6 flex items-center gap-2">
+            <i class="pi pi-send text-indigo-400"></i>
+            Send Me a Direct Message
+          </h3>
+
+          <!-- Submission Success Notification -->
+          @if (isSuccess()) {
+          <div
+            class="p-4 rounded-xl bg-emerald-500/15 border border-emerald-500/40 text-emerald-300 text-xs mb-6 flex items-center gap-3 animate-fade-in">
+            <i class="pi pi-check-circle text-lg text-emerald-400"></i>
+            <div>
+              <p class="font-bold text-white">Message sent successfully!</p>
+              <p>Thank you for reaching out. I'll get back to you shortly.</p>
+            </div>
+          </div>
+          }
+
+          <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="flex flex-col gap-4">
+
+            <!-- Name & Email (2 columns) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+              <!-- Name Field -->
+              <div class="flex flex-col gap-1.5">
+                <label for="name" class="text-xs font-semibold text-muted">Your Name <span
+                    class="text-rose-400">*</span></label>
+                <input id="name" type="text" pInputText formControlName="name" placeholder="e.g. John Doe"
+                  class="w-full text-xs p-3 rounded-xl border border-subtle bg-surface-elevated text-main"
+                  [class.border-rose-500]="isFieldInvalid('name')" />
+                @if (isFieldInvalid('name')) {
+                <span class="text-[11px] text-rose-400">Please enter your name (min 2 chars).</span>
+                }
+              </div>
+
+              <!-- Email Field -->
+              <div class="flex flex-col gap-1.5">
+                <label for="email" class="text-xs font-semibold text-muted">Your Email <span
+                    class="text-rose-400">*</span></label>
+                <input id="email" type="email" pInputText formControlName="email" placeholder="john@example.com"
+                  class="w-full text-xs p-3 rounded-xl border border-subtle bg-surface-elevated text-main"
+                  [class.border-rose-500]="isFieldInvalid('email')" />
+                @if (isFieldInvalid('email')) {
+                <span class="text-[11px] text-rose-400">Please enter a valid email address.</span>
+                }
+              </div>
+
+            </div>
+
+            <!-- Subject Field -->
+            <div class="flex flex-col gap-1.5">
+              <label for="subject" class="text-xs font-semibold text-muted">Subject <span
+                  class="text-rose-400">*</span></label>
+              <input id="subject" type="text" pInputText formControlName="subject"
+                placeholder="Project inquiry / Opportunity / Collaboration"
+                class="w-full text-xs p-3 rounded-xl border border-subtle bg-surface-elevated text-main"
+                [class.border-rose-500]="isFieldInvalid('subject')" />
+              @if (isFieldInvalid('subject')) {
+              <span class="text-[11px] text-rose-400">Subject is required (min 3 chars).</span>
+              }
+            </div>
+
+            <!-- Message Field -->
+            <div class="flex flex-col gap-1.5">
+              <label for="message" class="text-xs font-semibold text-muted">Message <span
+                  class="text-rose-400">*</span></label>
+              <textarea id="message" rows="5" pTextarea formControlName="message"
+                placeholder="Hi Alex, I'd like to discuss a project..."
+                class="w-full text-xs p-3 rounded-xl border border-subtle bg-surface-elevated text-main resize-none"
+                [class.border-rose-500]="isFieldInvalid('message')"></textarea>
+              @if (isFieldInvalid('message')) {
+              <span class="text-[11px] text-rose-400">Message must be at least 10 characters.</span>
+              }
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" pButton [disabled]="isSubmitting()"
+              class="btn-primary-gradient w-full py-3.5 rounded-xl font-bold text-sm text-white shadow-lg mt-2 flex items-center justify-center gap-2">
+              @if (isSubmitting()) {
+              <i class="pi pi-spin pi-spinner text-base"></i>
+              <span>Sending Message...</span>
+              } @else {
+              <i class="pi pi-send text-base"></i>
+              <span>Send Message</span>
+              }
+            </button>
+
+          </form>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- PrimeNG Google Map Modal / Dialog -->
+  <p-dialog [visible]="isMapModalVisible()" (visibleChange)="closeMap()" [modal]="true" [draggable]="false"
+      [resizable]="false" [style]="{ width: '90vw', maxWidth: '720px' }" [dismissableMask]="true">
+      <ng-template #header>
+        <div class="flex items-center gap-3">
+          <span class="p-2.5 rounded-xl bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
+            <i class="pi pi-map-marker text-lg"></i>
+          </span>
+          <div>
+            <h3 class="text-xl font-bold font-display text-main">Base Location Map</h3>
+            <span class="text-xs font-mono text-cyan-400">{{ data.location }}</span>
+          </div>
+        </div>
+      </ng-template>
+
+      <div class="flex flex-col gap-4">
+        <!-- Interactive Google Map Embed Frame -->
+        <div class="w-full h-80 rounded-xl overflow-hidden border border-subtle bg-slate-900 shadow-inner">
+          <iframe [src]="embedMapUrl" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade" title="Base Location Google Map"></iframe>
+        </div>
+
+        <!-- Map Modal Footer Action -->
+        <div class="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-subtle">
+          <div class="flex items-center gap-2 text-xs text-muted font-mono">
+            <i class="pi pi-compass text-indigo-400"></i>
+            <span>Kaliakair, Gazipur, Dhaka</span>
+          </div>
+
+          <a [href]="googleMapsUrl" target="_blank" rel="noopener noreferrer"
+            class="btn-primary-gradient px-4 py-2.5 text-xs font-bold rounded-xl text-white flex items-center gap-2 shadow-md hover:scale-105 transition-transform">
+            <i class="pi pi-external-link text-xs"></i>
+            <span>Open in Google Maps</span>
+          </a>
+        </div>
+      </div>
+    </p-dialog>
+</section>

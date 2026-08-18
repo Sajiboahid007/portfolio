@@ -1,0 +1,85 @@
+<section id="education" class="py-24 relative overflow-hidden bg-surface-elevated/30">
+  <div class="container mx-auto">
+    
+    <!-- Section Header -->
+    <div class="flex flex-col items-center text-center">
+      <div class="section-badge">
+        <i class="pi pi-graduation-cap text-xs"></i>
+        <span>Experience & Studies</span>
+      </div>
+      <h2 class="section-title">Education & Milestones</h2>
+      <p class="section-subtitle">
+        A chronological timeline of my academic background, industry internships, and competitive achievements.
+      </p>
+    </div>
+
+    <!-- Timeline Wrapper -->
+    <div class="max-w-4xl mx-auto">
+      <p-timeline [value]="timelineItems" align="alternate" styleClass="custom-portfolio-timeline">
+        
+        <!-- Timeline Marker / Node -->
+        <ng-template #marker let-item>
+          <div class="timeline-marker-circle flex items-center justify-center rounded-full border-2 border-indigo-500 bg-surface shadow-md">
+            <i [class]="item.icon + ' text-indigo-400 text-sm'"></i>
+          </div>
+        </ng-template>
+
+        <!-- Timeline Content Box -->
+        <ng-template #content let-item>
+          <div class="glass-card p-6 rounded-2xl mb-8 border border-subtle hover:border-indigo-500/40 transition-all text-left">
+            
+            <!-- Header Info -->
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+              <span class="text-xs font-mono font-bold text-indigo-400">
+                {{ item.period }}
+              </span>
+              @if (item.status) {
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold font-mono bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+                  {{ item.status }}
+                </span>
+              }
+            </div>
+
+            <h3 class="text-lg font-bold font-display text-main">{{ item.title }}</h3>
+            <div class="flex items-center gap-2 text-xs text-muted mb-4">
+              <span class="font-semibold text-main">{{ item.institution }}</span>
+              <span>•</span>
+              <span class="flex items-center gap-1">
+                <i class="pi pi-map-marker text-[10px] text-indigo-400"></i>
+                {{ item.location }}
+              </span>
+            </div>
+
+            <p class="text-xs text-muted leading-relaxed mb-4">
+              {{ item.description }}
+            </p>
+
+            <!-- Bullet Highlights -->
+            <ul class="space-y-2 mb-4">
+              @for (h of item.highlights; track h) {
+                <li class="flex items-start gap-2 text-xs text-muted">
+                  <i class="pi pi-check text-emerald-400 text-[10px] mt-1 flex-shrink-0"></i>
+                  <span class="text-main">{{ h }}</span>
+                </li>
+              }
+            </ul>
+
+            <!-- Tags -->
+            @if (item.skills && item.skills.length > 0) {
+              <div class="flex flex-wrap gap-1.5 pt-3 border-t border-subtle">
+                @for (skill of item.skills; track skill) {
+                  <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-surface-elevated text-muted">
+                    {{ skill }}
+                  </span>
+                }
+              </div>
+            }
+
+          </div>
+        </ng-template>
+
+      </p-timeline>
+    </div>
+
+  </div>
+</section>

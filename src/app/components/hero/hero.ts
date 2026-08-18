@@ -72,42 +72,13 @@ export class HeroComponent implements OnInit, OnDestroy {
   downloadCV(): void {
     if (!isPlatformBrowser(this.platformId)) return;
     
-    // Trigger sample downloadable resume file
-    const sampleResumeContent = `
-==============================================================
-${this.data.name.toUpperCase()} - RESUME & CV
-Email: ${this.data.email} | Phone: ${this.data.phone}
-Location: ${this.data.location}
-GitHub: ${this.data.github} | LinkedIn: ${this.data.linkedin}
-==============================================================
-
-EDUCATION:
-- B.Sc. in Computer Science & Engineering | ${this.data.university} (2022 - 2026) | CGPA: 3.51 / 4.00
-- Higher Secondary Certificate (HSC) | Kaliakair Degree College (2018 - 2021) | GPA: 4.00 / 5.00
-- Secondary School Certificate (SSC) | Ashraf Ali High School (Passing Year: 2018) | GPA: 4.56 / 5.00
-
-KEY SKILLS & TECHNOLOGIES:
-- Languages: TypeScript, JavaScript (ES6+), Kotlin, C / C++, PHP, HTML5, SCSS
-- Frameworks & Mobile: Angular (Signals & Standalone), Android SDK & Jetpack, Node.js & Express, PrimeNG, Tailwind CSS
-- Databases & Cloud: SQL Server Management Studio (SSMS), MySQL, PostgreSQL, Firebase, SQLite / Room DB
-- Tools & DevOps: Git & GitHub, Linux / Bash, Docker, Postman, Figma
-
-ACHIEVEMENTS & PROBLEM SOLVING:
-- 150+ Algorithmic Problems Solved on Beecrowd / Online Judges
-- National Hackathon 1st Runner Up (2025)
-- Dean's List for Outstanding Academic Performance
-- Research Project: Machine Learning model for early disease detection
-==============================================================
-    `;
-
-    const blob = new Blob([sampleResumeContent.trim()], { type: 'text/plain;charset=utf-8' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `${this.data.name.replace(/\s+/g, '_')}_Resume_CV.txt`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+    const resumePath = this.data.resumeUrl || 'assets/images/SajibHosen.pdf';
+    const link = document.createElement('a');
+    link.href = resumePath;
+    link.download = 'Sajib_Hossen_Resume.pdf';
+    link.target = '_blank';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   }
 }

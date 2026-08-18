@@ -1,0 +1,15 @@
+:host {
+  display: block;
+}
+
+input.p-inputtext, textarea.p-textarea {
+  background-color: var(--bg-surface-elevated) !important;
+  color: var(--text-main) !important;
+  border-color: var(--border-color) !important;
+  font-family: var(--font-body) !important;
+
+  &:focus {
+    border-color: var(--accent-primary) !important;
+    box-shadow: 0 0 0 2px var(--accent-glow) !important;
+  }
+}
