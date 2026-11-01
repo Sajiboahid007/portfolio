@@ -97,6 +97,7 @@ export const PORTFOLIO_DATA: {
         { name: 'TypeScript', level: 92, icon: 'pi pi-code', category: 'languages' },
         { name: 'JavaScript', level: 95, icon: 'pi pi-code', category: 'languages' },
         { name: 'Python (Basic)', level: 65, icon: 'pi pi-code', category: 'languages' },
+        { name: '.NET (Basic)', level: 60, icon: 'pi pi-code', category: 'languages' },
       ],
     },
     {
