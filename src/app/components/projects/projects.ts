@@ -42,8 +42,19 @@ export class ProjectsComponent {
     return this.allProjects.filter(p => p.category === category);
   });
 
+  readonly visibleCount = 9;
+  readonly showAll = signal<boolean>(false);
+
+  readonly visibleProjects = computed(() => this.filteredProjects().slice(0, this.visibleCount));
+  readonly moreProjects = computed(() => this.filteredProjects().slice(this.visibleCount));
+
   setFilter(category: string): void {
     this.selectedCategory.set(category);
+    this.showAll.set(false);
+  }
+
+  toggleShowAll(): void {
+    this.showAll.update(v => !v);
   }
 
   openProjectDetails(project: Project): void {

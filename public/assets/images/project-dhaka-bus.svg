@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 350" width="100%" height="100%">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#10b981"/><stop offset="100%" stop-color="#3b82f6"/></linearGradient>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#111827"/><stop offset="100%" stop-color="#090a16"/></linearGradient>
+  </defs>
+  <rect width="600" height="350" fill="#0b0d17" rx="16"/>
+  <rect x="2" y="2" width="596" height="346" fill="url(#bg)" rx="14" stroke="#10b981" stroke-width="1.5" stroke-opacity="0.4"/>
+  <g stroke="#1e293b" stroke-width="1" stroke-opacity="0.6">
+    <line x1="0" y1="70" x2="600" y2="70"/><line x1="0" y1="140" x2="600" y2="140"/><line x1="0" y1="210" x2="600" y2="210"/><line x1="0" y1="280" x2="600" y2="280"/>
+    <line x1="150" y1="0" x2="150" y2="350"/><line x1="300" y1="0" x2="300" y2="350"/><line x1="450" y1="0" x2="450" y2="350"/>
+  </g>
+  <circle cx="300" cy="110" r="90" fill="#10b981" opacity="0.10"/>
+  <circle cx="300" cy="110" r="52" fill="#0f172a" stroke="url(#g)" stroke-width="3"/>
+  <g transform="translate(300,110)"><path d="M -24 -22 L 24 -22 Q 28 -22 28 -18 L 28 14 L -28 14 L -28 -18 Q -28 -22 -24 -22 Z M -22 -14 L 22 -14 L 22 0 L -22 0 Z M -16 14 L -16 22 M 16 14 L 16 22" fill="none" stroke="url(#g)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></g>
+  <text x="300" y="210" font-family="Outfit, sans-serif" font-size="30" font-weight="bold" fill="#f8fafc" text-anchor="middle">Dhaka Bus Finder</text>
+  <text x="300" y="238" font-family="Inter, sans-serif" font-size="14" fill="#94a3b8" text-anchor="middle">Bilingual offline PWA</text>
+  <g transform="translate(157,270)"><g transform="translate(0,0)"><rect width="69" height="24" rx="6" fill="#0f172a" stroke="#10b981" stroke-opacity="0.6"/><text x="34.5" y="16" font-family="JetBrains Mono, monospace" font-size="11" fill="#e2e8f0" text-anchor="middle">Angular</text></g><g transform="translate(77,0)"><rect width="69" height="24" rx="6" fill="#0f172a" stroke="#10b981" stroke-opacity="0.6"/><text x="34.5" y="16" font-family="JetBrains Mono, monospace" font-size="11" fill="#e2e8f0" text-anchor="middle">Leaflet</text></g><g transform="translate(154,0)"><rect width="76" height="24" rx="6" fill="#0f172a" stroke="#10b981" stroke-opacity="0.6"/><text x="38" y="16" font-family="JetBrains Mono, monospace" font-size="11" fill="#e2e8f0" text-anchor="middle">Firebase</text></g><g transform="translate(238,0)"><rect width="48" height="24" rx="6" fill="#0f172a" stroke="#10b981" stroke-opacity="0.6"/><text x="24" y="16" font-family="JetBrains Mono, monospace" font-size="11" fill="#e2e8f0" text-anchor="middle">OSRM</text></g></g>
+</svg>
